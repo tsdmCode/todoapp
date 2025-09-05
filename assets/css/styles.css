@@ -12,3 +12,15 @@
   width: 400px;
   height: 400px;
 }
+.task-dialog {
+  width: 50%;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  z-index: 1000;
+}
+
+.done {
+  background-color: green;
+}

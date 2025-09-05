@@ -3,6 +3,7 @@ import populateList from './populateList.js';
 import updateView from './updateView.js';
 const viewport = document.getElementById('viewport');
 const listHead = document.getElementById('list-default');
+let activeList = '';
 
 function buildPage() {
   const data = retrieveData();
@@ -11,6 +12,11 @@ function buildPage() {
   //loop der skaber hver liste
 
   populateList();
+}
+
+function setActiveList(val) {
+  activeList = val;
+  console.log(val, ' is currently active');
 }
 
 const data = {
@@ -55,4 +61,4 @@ data.lists[sampleIndex].name = 'Fuck you';
 console.log(data);
  */
 
-export { viewport, listHead };
+export { viewport, listHead, activeList, setActiveList };
