@@ -1,4 +1,4 @@
-export default function retrieveData() {
+function retrieveData() {
   const userData = localStorage.getItem('todoapp_data');
   return userData
     ? JSON.parse(userData)
@@ -7,7 +7,7 @@ export default function retrieveData() {
         lists: [
           {
             name: 'Sample',
-            id: crypto.randomUUID(),
+            id: 'fick you',
             tasks: [
               { text: 'sample text', done: false },
               { text: 'Another sample text', done: true },
@@ -15,7 +15,7 @@ export default function retrieveData() {
           },
           {
             name: 'Sample2',
-            id: crypto.randomUUID(),
+            id: 'die',
             tasks: [
               { text: 'sample text', done: false },
               { text: 'Another sample text', done: true },
@@ -24,3 +24,5 @@ export default function retrieveData() {
         ],
       };
 }
+
+export { retrieveData };
