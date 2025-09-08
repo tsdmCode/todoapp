@@ -2,6 +2,7 @@ import { retrieveData } from './retrieveData.js';
 import updateView from './updateView.js';
 import fetchList from './fetchList.js';
 import { activeList } from './index.js';
+import deleteView from './deleteView.js';
 
 export default function viewTask(task, listId, taskIndex) {
   console.log('I have been called with', task);
@@ -12,7 +13,7 @@ export default function viewTask(task, listId, taskIndex) {
   console.log(done);
   let btnText = done ? 'Not Done' : 'Done';
 
-  dialog.innerHTML = `<div id="close-dialog">X<div>${text}</div><div>Edit</div><button id="doneBtn">${btnText}</button>`;
+  dialog.innerHTML = `<div id="close-dialog">X<div>${text}</div><div id="edit">Edit</div><button id="doneBtn">${btnText}</button><button id="deleteBtn">DELETE</button>`;
   document.body.append(dialog);
   dialog.showModal();
 
@@ -23,7 +24,7 @@ export default function viewTask(task, listId, taskIndex) {
     dialog.querySelector('#doneBtn').textContent = btnText;
 
     const data = retrieveData();
-    // Find the list containing this task
+    // Finder listen med task'en i
     const list = data.lists.find((l) => l.id === listId);
     if (list && list.tasks[taskIndex]) {
       list.tasks[taskIndex].done = done;
@@ -33,5 +34,10 @@ export default function viewTask(task, listId, taskIndex) {
     }
     console.log('Updated done:', done);
   };
+
+  dialog.querySelector('#deleteBtn').onclick = (e) => {
+    deleteView(text, listId, taskIndex, 'task');
+  };
+
   dialog.querySelector('#close-dialog').onclick = () => dialog.close();
 }
