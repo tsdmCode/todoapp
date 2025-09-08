@@ -4,6 +4,7 @@ import updateView from './updateView.js';
 const viewport = document.getElementById('viewport');
 const listHead = document.getElementById('list-default');
 let activeList = '';
+let appState = '';
 
 function buildPage() {
   const data = retrieveData();
@@ -17,6 +18,10 @@ function buildPage() {
 function setActiveList(val) {
   activeList = val;
   console.log(val, ' is currently active');
+}
+
+function setAppstate(val) {
+  appState = val;
 }
 
 const data = {
