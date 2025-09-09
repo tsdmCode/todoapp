@@ -1,7 +1,8 @@
+import { setActiveList } from './index.js';
 import { retrieveData } from './retrieveData.js';
 import updateView from './updateView.js';
 
-export default function deleteItem(task, listId, taskIndex, mode, deleteDiag) {
+export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
   //console.log('NU SLETTER JEG FUCKING', task);
   const data = retrieveData();
   const list = data.lists.find((l) => l.id === listId);
@@ -19,9 +20,11 @@ export default function deleteItem(task, listId, taskIndex, mode, deleteDiag) {
         data.lists.splice(listIndex, 1);
         localStorage.setItem('todoapp_data', JSON.stringify(data));
         deleteDiag.close();
+        setActiveList('');
         updateView(list);
         console.log('List deleted:', listId);
       }
+      break;
     default:
       console.log('Error: invalid view');
       break;

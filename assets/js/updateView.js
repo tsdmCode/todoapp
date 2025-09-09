@@ -1,9 +1,13 @@
-import { viewport } from './index.js';
+import { activeList, viewport } from './index.js';
 import viewTask from './viewTask.js';
 
 export default function updateView(list) {
-  console.log('my list is ', list);
+  // console.log('my list is ', list);
   viewport.innerHTML = '';
+  if (activeList === '') {
+    return;
+  }
+
   const { name, tasks } = list;
 
   const listHead = document.createElement('ul');

@@ -4,7 +4,7 @@ import { activeList, setActiveList } from './index.js';
 
 export default function fetchList(str) {
   setActiveList(str);
-  console.log(activeList);
+  //console.log(activeList);
   const data = retrieveData();
   const foundList = data.lists.find((list) => list.id === str);
 

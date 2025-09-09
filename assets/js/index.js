@@ -2,6 +2,7 @@ import { retrieveData } from './retrieveData.js';
 import populateList from './populateList.js';
 import updateView from './updateView.js';
 import viewAdd from './viewAdd.js';
+import deleteView from './deleteView.js';
 
 const viewport = document.getElementById('viewport');
 const listHead = document.getElementById('list-default');
@@ -75,5 +76,7 @@ document.getElementById('addTask').addEventListener('click', () => {
 document.getElementById('addList').addEventListener('click', () => {
   viewAdd(activeList, 'list');
 });
-
+document.getElementById('deleteList').addEventListener('click', () => {
+  deleteView(null, activeList, null, 'list');
+});
 export { viewport, listHead, activeList, setActiveList };
