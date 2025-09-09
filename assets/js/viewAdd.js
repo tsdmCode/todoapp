@@ -5,8 +5,6 @@ import updateView from './updateView.js';
 import addItem from './addItem.js';
 
 export default function viewAdd(listId, mode) {
-  console.log('Halløj');
-
   const addDiag = document.createElement('dialog');
   const prompt = document.createElement('h2');
   prompt.innerText = `Hvad skal ${mode === 'list' ? 'listen' : 'tasken'} hedde?`;

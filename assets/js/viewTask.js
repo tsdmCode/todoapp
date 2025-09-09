@@ -5,12 +5,12 @@ import { activeList } from './index.js';
 import deleteView from './deleteView.js';
 
 export default function viewTask(task, listId, taskIndex) {
-  console.log('I have been called with', task);
+  // console.log('I have been called with', task);
   const dialog = document.createElement('dialog');
   dialog.classList.add('task-dialog');
 
   let { text, done } = task;
-  console.log(done);
+  //  console.log(done);
   let btnText = done ? 'Not Done' : 'Done';
 
   dialog.innerHTML = `<div id="close-dialog">X<div>${text}</div><div id="edit">Edit</div><button id="doneBtn">${btnText}</button><button id="deleteBtn">DELETE</button>`;
@@ -32,7 +32,7 @@ export default function viewTask(task, listId, taskIndex) {
 
       fetchList(listId);
     }
-    console.log('Updated done:', done);
+    //console.log('Updated done:', done);
   };
 
   dialog.querySelector('#deleteBtn').onclick = (e) => {

@@ -7,7 +7,6 @@ export default function addItem(listId, mode, addDiag, name) {
 
   const { lists } = data;
 
-  //todo læg alt det her i en ny funktion og lav det om til en eventlistener på saveButton
   if (mode === 'list') {
     lists.push({ name, id: crypto.randomUUID(), tasks: [] });
 

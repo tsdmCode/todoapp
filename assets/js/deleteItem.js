@@ -2,7 +2,7 @@ import { retrieveData } from './retrieveData.js';
 import updateView from './updateView.js';
 
 export default function deleteItem(task, listId, taskIndex, mode, deleteDiag) {
-  console.log('NU SLETTER JEG FUCKING', task);
+  //console.log('NU SLETTER JEG FUCKING', task);
   const data = retrieveData();
   const list = data.lists.find((l) => l.id === listId);
 

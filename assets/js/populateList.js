@@ -9,7 +9,7 @@ export default function populateList() {
   listMenu.innerHTML = '';
 
   const { lists } = data;
-  console.log(lists);
+  //console.log(lists);
   if (lists.length > 0) {
     listHead.innerHTML = 'Select';
 
