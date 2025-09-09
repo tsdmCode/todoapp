@@ -1,6 +1,8 @@
 import { retrieveData } from './retrieveData.js';
 import populateList from './populateList.js';
 import updateView from './updateView.js';
+import viewAdd from './viewAdd.js';
+
 const viewport = document.getElementById('viewport');
 const listHead = document.getElementById('list-default');
 let activeList = '';
@@ -65,5 +67,13 @@ data.lists[sampleIndex].name = 'Fuck you';
 
 console.log(data);
  */
+
+//event listeners
+document.getElementById('addTask').addEventListener('click', () => {
+  viewAdd(activeList, 'task');
+});
+document.getElementById('addList').addEventListener('click', () => {
+  viewAdd(activeList, 'list');
+});
 
 export { viewport, listHead, activeList, setActiveList };
