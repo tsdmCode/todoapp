@@ -70,6 +70,32 @@ data.lists[sampleIndex].name = 'Fuck you';
 console.log(data);
  */
 
+function applyTheme() {
+  const data = retrieveData();
+  if (data.darkMode) {
+    document.body.classList.add('dark-mode');
+    viewport.classList.add('dark-mode');
+    document.getElementById('global-header').classList.add('dark-mode');
+    document.getElementById('toggleTheme').checked = true;
+  } else {
+    document.body.classList.remove('dark-mode');
+    viewport.classList.remove('dark-mode');
+    document.getElementById('global-header').classList.remove('dark-mode');
+    document.getElementById('toggleTheme').checked = false;
+  }
+}
+
+function toggleTheme() {
+  const data = retrieveData();
+  data.darkMode = !data.darkMode;
+  localStorage.setItem('todoapp_data', JSON.stringify(data));
+  applyTheme();
+}
+
+document.getElementById('toggleTheme').addEventListener('change', toggleTheme);
+
+window.addEventListener('DOMContentLoaded', applyTheme);
+
 //event listeners
 document.getElementById('addTask').addEventListener('click', () => {
   console.log(activeList);

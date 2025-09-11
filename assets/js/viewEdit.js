@@ -1,4 +1,5 @@
 import editItem from './editItem.js';
+import sanitizeInput from './santizeInput.js';
 
 export default function viewEdit(name, listId, taskIndex, mode) {
   //text, listId, taskIndex, 'task'
@@ -23,10 +24,12 @@ export default function viewEdit(name, listId, taskIndex, mode) {
 
   saveButton.addEventListener('click', () => {
     const name = nameOfItem.value;
+    const isValid = sanitizeInput(name);
 
-    if (mode === 'list') {
+    if (isValid) {
       editItem(listId, mode, editDiag, name, taskIndex);
     } else {
+      alert('Dit output er lidt for vildt my guy');
     }
   });
 }
