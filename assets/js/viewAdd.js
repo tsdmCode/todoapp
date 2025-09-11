@@ -1,9 +1,7 @@
 import addItem from './addItem.js';
-import { activeList } from './index.js';
+import sanitizeInput from './santizeInput.js';
 
 export default function viewAdd(listId, mode) {
-  console.log(activeList);
-
   const addDiag = document.createElement('dialog');
   const prompt = document.createElement('h2');
   prompt.innerText = `Hvad skal ${mode === 'list' ? 'listen' : 'tasken'} hedde?`;
@@ -24,6 +22,12 @@ export default function viewAdd(listId, mode) {
 
   saveButton.addEventListener('click', () => {
     const name = nameOfItem.value;
-    addItem(listId, mode, addDiag, name);
+    const isValid = sanitizeInput(name);
+
+    if (isValid) {
+      addItem(listId, mode, addDiag, name);
+    } else {
+      alert('Dit input er for vildt my guy');
+    }
   });
 }
