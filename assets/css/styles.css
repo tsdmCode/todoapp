@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: roboto, sans-serif;
+}
+
 #global-header {
   background-color: gray;
   width: 400px;
@@ -11,6 +17,7 @@
   border: 1px solid red;
   width: 400px;
   height: 400px;
+  overflow-y: scroll;
 }
 .task-dialog {
   width: 50%;
@@ -44,4 +51,8 @@ body,
 #global-header,
 #viewport {
   transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+ul {
+  list-style-type: none;
 }

@@ -72,6 +72,11 @@ console.log(data);
 
 //event listeners
 document.getElementById('addTask').addEventListener('click', () => {
+  console.log(activeList);
+  if (activeList === '') {
+    alert('Vælg en liste!');
+    return;
+  }
   viewAdd(activeList, 'task');
 });
 document.getElementById('addList').addEventListener('click', () => {

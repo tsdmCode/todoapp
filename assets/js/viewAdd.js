@@ -1,6 +1,9 @@
 import addItem from './addItem.js';
+import { activeList } from './index.js';
 
 export default function viewAdd(listId, mode) {
+  console.log(activeList);
+
   const addDiag = document.createElement('dialog');
   const prompt = document.createElement('h2');
   prompt.innerText = `Hvad skal ${mode === 'list' ? 'listen' : 'tasken'} hedde?`;
