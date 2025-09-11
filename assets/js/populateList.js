@@ -15,7 +15,7 @@ export default function populateList() {
 
     lists.forEach((element) => {
       const list = document.createElement('li');
-      list.classList.add('list-item');
+
       list.innerHTML = element.name;
       list.dataset.id = element.id;
 

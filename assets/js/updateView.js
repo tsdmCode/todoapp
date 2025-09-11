@@ -2,8 +2,8 @@ import { activeList, viewport } from './index.js';
 import viewTask from './viewTask.js';
 
 export default function updateView(list) {
-  // console.log('my list is ', list);
   viewport.innerHTML = '';
+
   if (activeList === '') {
     return;
   }
@@ -12,18 +12,20 @@ export default function updateView(list) {
 
   const listHead = document.createElement('ul');
   const listName = document.createElement('li');
+
   listName.innerText = name;
+  listName.classList.add('list-head');
   listHead.append(listName);
 
   tasks.forEach((task, index) => {
     const item = document.createElement('li');
     item.innerText = task.text;
-
+    item.classList.add('list-item');
     if (task.done) {
       item.classList.add('done');
     }
 
-    listName.append(item);
+    listHead.append(item);
 
     item.addEventListener('click', () => {
       viewTask(task, list.id, index);
