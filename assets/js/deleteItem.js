@@ -1,4 +1,5 @@
 import { setActiveList } from './index.js';
+import populateList from './populateList.js';
 import { retrieveData } from './retrieveData.js';
 import updateView from './updateView.js';
 
@@ -16,12 +17,14 @@ export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
       break;
     case 'list':
       const listIndex = data.lists.findIndex((l) => l.id === listId);
+
       if (listIndex !== -1) {
         data.lists.splice(listIndex, 1);
         localStorage.setItem('todoapp_data', JSON.stringify(data));
         deleteDiag.close();
         setActiveList('');
         updateView(list);
+        populateList();
         console.log('List deleted:', listId);
       }
       break;

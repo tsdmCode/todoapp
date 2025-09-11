@@ -1,7 +1,3 @@
-import fetchList from './fetchList.js';
-import populateList from './populateList.js';
-import { retrieveData } from './retrieveData.js';
-import updateView from './updateView.js';
 import addItem from './addItem.js';
 
 export default function viewAdd(listId, mode) {

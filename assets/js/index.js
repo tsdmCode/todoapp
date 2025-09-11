@@ -3,6 +3,7 @@ import populateList from './populateList.js';
 import updateView from './updateView.js';
 import viewAdd from './viewAdd.js';
 import deleteView from './deleteView.js';
+import viewEdit from './viewEdit.js';
 
 const viewport = document.getElementById('viewport');
 const listHead = document.getElementById('list-default');
@@ -78,5 +79,14 @@ document.getElementById('addList').addEventListener('click', () => {
 });
 document.getElementById('deleteList').addEventListener('click', () => {
   deleteView(null, activeList, null, 'list');
+});
+
+document.getElementById('editListBtn').addEventListener('click', () => {
+  // Pass current list name, listId, null for taskIndex, and 'list' as mode
+  const data = retrieveData();
+  const list = data.lists.find((l) => l.id === activeList);
+  if (list) {
+    viewEdit(list.name, list.id, null, 'list');
+  }
 });
 export { viewport, listHead, activeList, setActiveList };

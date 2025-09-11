@@ -3,6 +3,7 @@ import updateView from './updateView.js';
 import fetchList from './fetchList.js';
 import { activeList } from './index.js';
 import deleteView from './deleteView.js';
+import viewEdit from './viewEdit.js';
 
 export default function viewTask(task, listId, taskIndex) {
   // console.log('I have been called with', task);
@@ -13,7 +14,7 @@ export default function viewTask(task, listId, taskIndex) {
   //  console.log(done);
   let btnText = done ? 'Not Done' : 'Done';
 
-  dialog.innerHTML = `<div id="close-dialog">X<div>${text}</div><div id="edit">Edit</div><button id="doneBtn">${btnText}</button><button id="deleteBtn">DELETE</button>`;
+  dialog.innerHTML = `<div id="close-dialog">X<div>${text}</div><button id="edit">Edit</button><button id="doneBtn">${btnText}</button><button id="deleteBtn">DELETE</button>`;
   document.body.append(dialog);
   dialog.showModal();
 
@@ -37,6 +38,9 @@ export default function viewTask(task, listId, taskIndex) {
 
   dialog.querySelector('#deleteBtn').onclick = (e) => {
     deleteView(text, listId, taskIndex, 'task');
+  };
+  dialog.querySelector('#edit').onclick = (e) => {
+    viewEdit(text, listId, taskIndex, 'task');
   };
 
   dialog.querySelector('#close-dialog').onclick = () => dialog.close();
