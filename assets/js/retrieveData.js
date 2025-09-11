@@ -1,5 +1,6 @@
 function retrieveData() {
   const userData = localStorage.getItem('todoapp_data');
+
   return userData
     ? JSON.parse(userData)
     : {

@@ -1,6 +1,5 @@
 import { retrieveData } from './retrieveData.js';
 import populateList from './populateList.js';
-import updateView from './updateView.js';
 import viewAdd from './viewAdd.js';
 import deleteView from './deleteView.js';
 import viewEdit from './viewEdit.js';

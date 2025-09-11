@@ -2,6 +2,8 @@
 
 body {
   font-family: roboto, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 #global-header {
@@ -27,22 +29,35 @@ body {
 
 #viewport ul {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .list-head {
+  text-align: center;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
 /* #endregion */
 
+/* #region Halløj */
+
 ul {
   list-style-type: none;
 }
 
 .list-item {
-  background-color: gray;
-  padding: 0.25rem;
+  background-color: #58585845;
+  padding: 0.5rem;
+  /* color: #fff; */
+  border-bottom-right-radius: 10px;
+  font-size: 1.25rem;
+}
+
+.list-item:hover {
+  cursor: pointer;
 }
 
 .task-dialog {
@@ -55,8 +70,18 @@ ul {
 }
 
 .done {
-  background-color: green;
+  background-color: #04a304;
 }
+
+/* #endregion */
+
+/* #region footer */
+
+#menu {
+  padding: 5.25rem;
+}
+
+/* #endregion  */
 
 /* #region dark mode */
 
@@ -75,7 +100,7 @@ body.dark-mode {
 }
 
 .done.dark-mode {
-  background-color: #005500;
+  background-color: #00550045;
 }
 
 body,
@@ -135,3 +160,9 @@ body,
 }
 
 /* #endregion */
+
+@media screen and (max-res: 800px) {
+  #global-header {
+    width: 100%;
+  }
+}

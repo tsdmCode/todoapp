@@ -1,17 +1,14 @@
 import { retrieveData } from './retrieveData.js';
-import updateView from './updateView.js';
 import fetchList from './fetchList.js';
-import { activeList } from './index.js';
 import deleteView from './deleteView.js';
 import viewEdit from './viewEdit.js';
 
 export default function viewTask(task, listId, taskIndex) {
-  // console.log('I have been called with', task);
   const dialog = document.createElement('dialog');
   dialog.classList.add('task-dialog');
 
   let { text, done } = task;
-  //  console.log(done);
+
   let btnText = done ? 'Not Done' : 'Done';
 
   dialog.innerHTML = `<div id="close-dialog">X<div>${text}</div><button id="edit">Edit</button><button id="doneBtn">${btnText}</button><button id="deleteBtn">DELETE</button>`;

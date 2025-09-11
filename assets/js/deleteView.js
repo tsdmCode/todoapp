@@ -1,5 +1,4 @@
 import { retrieveData } from './retrieveData.js';
-import updateView from './updateView.js';
 import deleteItem from './deleteItem.js';
 
 export default function deleteView(item, listId, taskIndex, mode) {

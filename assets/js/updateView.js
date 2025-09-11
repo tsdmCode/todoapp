@@ -21,6 +21,7 @@ export default function updateView(list) {
     const item = document.createElement('li');
     item.innerText = task.text;
     item.classList.add('list-item');
+
     if (task.done) {
       item.classList.add('done');
     }
