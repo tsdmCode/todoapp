@@ -24,3 +24,24 @@
 .done {
   background-color: green;
 }
+
+body.dark-mode {
+  background: #222;
+  color: #eee;
+}
+#global-header.dark-mode {
+  background-color: #333;
+}
+#viewport.dark-mode {
+  border-color: #444;
+  background: #222;
+}
+.done.dark-mode {
+  background-color: #005500;
+}
+
+body,
+#global-header,
+#viewport {
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
