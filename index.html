@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <script type="module" src="./assets/js/index.js" defer></script>
     <link rel="manifest" href="./manifest.json" />
   </head>
@@ -19,14 +20,20 @@
     <div id="viewport"></div>
     <div id="menu">
       <img src="" id="delete" />
-      <ul id="list-select">
-        <li id="list-default">Hej</li>
-      </ul>
       <div id="buttonBar">
+        <button id="deleteList" title="Slet liste">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        <ul id="list-select">
+          <li id="list-default">Hej</li>
+        </ul>
+        <button id="editListBtn" title="Rediger liste">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </div>
+      <div id="newBar">
         <button id="addTask">Ny Task</button>
         <button id="addList">Ny Liste</button>
-        <button id="deleteList">Slet liste</button>
-        <button id="editListBtn">Rediger Liste</button>
       </div>
     </div>
   </body>
