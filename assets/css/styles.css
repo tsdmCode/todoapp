@@ -3,7 +3,7 @@
 body {
   font-family: roboto, sans-serif;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 #global-header {
@@ -78,7 +78,8 @@ ul {
 /* #region footer */
 
 #menu {
-  padding: 5.25rem;
+  border: 1px solid red;
+  width: 400px;
 }
 
 /* #endregion  */

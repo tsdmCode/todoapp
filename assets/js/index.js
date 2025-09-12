@@ -4,6 +4,14 @@ import viewAdd from './viewAdd.js';
 import deleteView from './deleteView.js';
 import viewEdit from './viewEdit.js';
 
+//service worker mumbojumbo
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('./service-worker.js')
+    .then((reg) => console.log('Service Worker registered with scope:', reg.scope))
+    .catch((err) => console.error('Service Worker registration failed:', err));
+}
+
 const viewport = document.getElementById('viewport');
 const listHead = document.getElementById('list-default');
 let activeList = '';
@@ -119,4 +127,5 @@ document.getElementById('editListBtn').addEventListener('click', () => {
     viewEdit(list.name, list.id, null, 'list');
   }
 });
+
 export { viewport, listHead, activeList, setActiveList };
