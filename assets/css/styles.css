@@ -43,10 +43,11 @@ dialog input {
   scrollbar-width: 10px;
 }
 
-/* #placeholder h2  {
+#placeholder {
   padding: 1rem;
   text-align: center;
-} */
+}
+
 #list-container {
   border-radius: 10px;
 }
