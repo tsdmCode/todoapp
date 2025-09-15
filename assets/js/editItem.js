@@ -23,4 +23,5 @@ export default function editItem(listId, mode, editDiag, name, taskIndex) {
   }
   populateList();
   editDiag.close();
+  editDiag.remove();
 }

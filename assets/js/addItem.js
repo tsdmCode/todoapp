@@ -23,4 +23,5 @@ export default function addItem(listId, mode, addDiag, name) {
   }
   populateList();
   addDiag.close();
+  addDiag.remove();
 }

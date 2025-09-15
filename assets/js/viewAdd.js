@@ -30,4 +30,9 @@ export default function viewAdd(listId, mode) {
       alert('Dit input er for vildt my guy');
     }
   });
+
+  discardButton.addEventListener('click', () => {
+    addDiag.close();
+    addDiag.remove();
+  });
 }

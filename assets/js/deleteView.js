@@ -27,7 +27,10 @@ export default function deleteView(item, listId, taskIndex, mode) {
     deleteItem(listId, taskIndex, mode, deleteDiag);
   };
 
-  deleteDiag.querySelector('#close-dialog').onclick = () => deleteDiag.close();
+  deleteDiag.querySelector('#close-dialog').onclick = () => {
+    deleteDiag.close();
+    deleteDiag.remove();
+  };
 
   deleteDiag.showModal();
 }

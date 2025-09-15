@@ -13,6 +13,7 @@ export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
       list.tasks.splice(taskIndex, 1);
       localStorage.setItem('todoapp_data', JSON.stringify(data));
       deleteDiag.close();
+      deleteDiag.remove();
       updateView(list);
       break;
     case 'list':
@@ -22,6 +23,7 @@ export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
         data.lists.splice(listIndex, 1);
         localStorage.setItem('todoapp_data', JSON.stringify(data));
         deleteDiag.close();
+        deleteDiag.remove();
         setActiveList('');
         updateView(list);
         populateList();

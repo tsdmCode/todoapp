@@ -10,31 +10,35 @@
     <link rel="manifest" href="./manifest.json" />
   </head>
   <body>
-    <header id="global-header">
-      <h1>TODO APP</h1>
-      <label class="theme-switch">
-        <input type="checkbox" id="toggleTheme" />
-        <span class="slider"></span>
-      </label>
-    </header>
-    <div id="viewport"></div>
-    <div id="menu">
-      <img src="" id="delete" />
-      <div id="buttonBar">
-        <button id="deleteList" title="Slet liste">
-          <i class="fa-solid fa-trash"></i>
-        </button>
-        <ul id="list-select">
-          <li id="list-default">Hej</li>
-        </ul>
-        <button id="editListBtn" title="Rediger liste">
-          <i class="fa-solid fa-pen-to-square"></i>
-        </button>
+    <main>
+      <header id="global-header">
+        <h1>TODO APP</h1>
+        <label class="theme-switch">
+          <input type="checkbox" id="toggleTheme" />
+          <span class="slider"></span>
+        </label>
+      </header>
+      <div id="viewport"></div>
+      <div id="menu">
+        <img src="" id="delete" />
+        <div id="buttonBar">
+          <button id="deleteList" title="Slet liste">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <div id="list-container">
+            <ul id="list-select">
+              <li id="list-default">Fyld mig med lister!</li>
+            </ul>
+          </div>
+          <button id="editListBtn" title="Rediger liste">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+        </div>
+        <div id="newBar">
+          <button id="addTask">Ny Task</button>
+          <button id="addList">Ny Liste</button>
+        </div>
       </div>
-      <div id="newBar">
-        <button id="addTask">Ny Task</button>
-        <button id="addList">Ny Liste</button>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
