@@ -1,11 +1,5 @@
 const CACHE_NAME = 'todoapp-cache-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/assets/css/styles.css',
-  '/assets/js/index.js',
-  // Add other JS files and assets you want to cache
-];
+const urlsToCache = ['/', '/index.html', '/assets/css/styles.css', '/assets/js/index.js'];
 
 /* self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)));

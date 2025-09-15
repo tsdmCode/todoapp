@@ -1,6 +1,7 @@
 import { setActiveList } from './index.js';
 import populateList from './populateList.js';
 import { retrieveData } from './retrieveData.js';
+import saveData from './saveData.js';
 import updateView from './updateView.js';
 
 export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
@@ -11,7 +12,7 @@ export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
   switch (mode) {
     case 'task':
       list.tasks.splice(taskIndex, 1);
-      localStorage.setItem('todoapp_data', JSON.stringify(data));
+      saveData(data);
       deleteDiag.close();
       deleteDiag.remove();
       updateView(list);
@@ -21,7 +22,7 @@ export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
 
       if (listIndex !== -1) {
         data.lists.splice(listIndex, 1);
-        localStorage.setItem('todoapp_data', JSON.stringify(data));
+        saveData(data);
         deleteDiag.close();
         deleteDiag.remove();
         setActiveList('');

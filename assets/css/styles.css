@@ -43,6 +43,14 @@ dialog input {
   scrollbar-width: 10px;
 }
 
+/* #placeholder h2  {
+  padding: 1rem;
+  text-align: center;
+} */
+#list-container {
+  border-radius: 10px;
+}
+
 #viewport ul {
   width: 50%;
   display: flex;
@@ -80,6 +88,17 @@ ul {
   cursor: pointer;
 }
 
+@keyframes comeInFromBottom {
+  from {
+    transform: translateY(200px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes comeInFromSide {
   from {
     transform: translateX(-100px);
@@ -114,12 +133,9 @@ ul {
 
 .task-dialog {
   width: 300px;
-  position: absolute;
-  left: 50%;
-  bottom: 0%;
-  transform: translateX(-50%);
-  z-index: 1000;
   font-size: 1.5rem;
+  box-sizing: border-box;
+  animation: comeInFromBottom 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 #buttonBar {

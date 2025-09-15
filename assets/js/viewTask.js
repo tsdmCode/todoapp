@@ -2,6 +2,7 @@ import { retrieveData } from './retrieveData.js';
 import fetchList from './fetchList.js';
 import deleteView from './deleteView.js';
 import viewEdit from './viewEdit.js';
+import saveData from './saveData.js';
 
 export default function viewTask(task, listId, taskIndex) {
   const dialog = document.createElement('dialog');
@@ -27,7 +28,7 @@ export default function viewTask(task, listId, taskIndex) {
     const list = data.lists.find((l) => l.id === listId);
     if (list && list.tasks[taskIndex]) {
       list.tasks[taskIndex].done = done;
-      localStorage.setItem('todoapp_data', JSON.stringify(data));
+      saveData(data);
 
       fetchList(listId);
     }

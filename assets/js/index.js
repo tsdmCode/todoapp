@@ -3,6 +3,7 @@ import populateList from './populateList.js';
 import viewAdd from './viewAdd.js';
 import deleteView from './deleteView.js';
 import viewEdit from './viewEdit.js';
+import saveData from './saveData.js';
 
 //service worker mumbojumbo
 if ('serviceWorker' in navigator) {
@@ -36,7 +37,7 @@ function setAppstate(val) {
 }
 
 const data = {
-  darkMode: false,
+  darkMode: true,
   lists: [
     {
       name: 'Sample',
@@ -59,24 +60,6 @@ const data = {
 
 buildPage();
 
-/*
-Så jeg kan huske hvordan man gør tingene
-
-data.lists.forEach((element) => {
-  console.log(element.name);
-});
-
-data.lists[0].tasks.push({ text: 'Some add stuff', done: false });
-
-console.log(data);
-
-const sampleIndex = data.lists.findIndex((list) => list.name === 'Sample');
-
-data.lists[sampleIndex].name = 'Fuck you';
-
-console.log(data);
- */
-
 function applyTheme() {
   const data = retrieveData();
   if (data.darkMode) {
@@ -95,7 +78,7 @@ function applyTheme() {
 function toggleTheme() {
   const data = retrieveData();
   data.darkMode = !data.darkMode;
-  localStorage.setItem('todoapp_data', JSON.stringify(data));
+  saveData(data);
   applyTheme();
 }
 
@@ -129,3 +112,21 @@ document.getElementById('editListBtn').addEventListener('click', () => {
 });
 
 export { viewport, listHead, activeList, setActiveList };
+
+/*
+Så jeg kan huske hvordan man gør tingene
+
+data.lists.forEach((element) => {
+  console.log(element.name);
+});
+
+data.lists[0].tasks.push({ text: 'Some add stuff', done: false });
+
+console.log(data);
+
+const sampleIndex = data.lists.findIndex((list) => list.name === 'Sample');
+
+data.lists[sampleIndex].name = 'Fuck you';
+
+console.log(data);
+ */
