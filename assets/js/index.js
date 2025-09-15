@@ -20,10 +20,10 @@ let appState = '';
 
 function buildPage() {
   const data = retrieveData();
-
+  document.body.style.display = 'block';
   //TODO: lav om på det så den kun smider EN liste op og kun når den bliver kaldt
   //loop der skaber hver liste
-
+  applyTheme();
   populateList();
 }
 
