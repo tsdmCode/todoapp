@@ -1,0 +1,85 @@
+// Import variables and mixins
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Google Fonts import
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+// === FOUNDATION STYLES ===
+body {
+  display: none;
+  font-family: $font-family;
+  margin: 0;
+  box-sizing: content-box;
+  background: $primary-bg;
+  @include smooth-transition;
+}
+
+dialog button,
+dialog input {
+  font-family: $font-family;
+  padding: $base-padding;
+}
+
+// header section
+#global-header {
+  background-color: $header-bg;
+  width: $main-width;
+  height: $header-height;
+  @include flex-column-center;
+}
+
+// viewport/containers
+#viewport {
+  border: $border-debug;
+  width: $main-width;
+  height: $viewport-height;
+  @include custom-scrollbar;
+  @include flex-center;
+}
+
+#list-container {
+    background-color: $list-container-bg;
+    padding: $small-padding $large-margin;
+    height: $list-container-height;
+    margin-bottom: $large-margin;
+    @include custom-scrollbar;
+    border-radius: $border-radius-small;
+}
+
+#placeholder {
+  padding: $base-padding;
+  text-align: center;
+}
+
+#viewport ul {
+    @include flex-column;
+    width: 50%;
+    gap: $gap-small;
+}
+
+.list-head {
+  text-align: center;
+  font-weight: bold;
+  font-size: $font-size-xl;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+ @include list-item-base
+}
+
+// Menu time
+#menu {
+    border: $border-debug;
+    width: $main-width;
+    position: relative;
+}
+
+dialog {
+    @include dialog-base
+}

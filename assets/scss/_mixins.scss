@@ -1,0 +1,197 @@
+
+// Flexbox mixins
+@use "variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-column-center {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Button reset mixin
+@mixin button-reset {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: $font-family;
+  color: inherit;
+}
+
+// Animation mixins
+@mixin slide-in-from-left($distance: 100px) {
+  animation: slideInLeft $transition-medium $ease-out-back;
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-#{$distance});
+      opacity: 0.5;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slide-in-from-bottom($distance: 200px) {
+  animation: slideInBottom $transition-medium $ease-out-back;
+  
+  @keyframes slideInBottom {
+    from {
+      transform: translateY(#{$distance});
+      opacity: 0.5;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// Custom scrollbar mixin
+@mixin custom-scrollbar($color-light: $scrollbar-color-light, $color-dark: $scrollbar-color-dark, $width: $scrollbar-width) {
+  overflow-y: auto;
+  scrollbar-color: $color-light;
+  scrollbar-width: $width;
+  
+  .dark-mode & {
+    scrollbar-color: $color-dark;
+  }
+}
+
+// Responsive mixins
+@mixin mobile-up {
+  @media (min-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile-down {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+// Dark mode mixin
+@mixin dark-mode {
+  .dark-mode & {
+    @content;
+  }
+}
+
+// Transition mixin
+@mixin smooth-transition($properties: background color border-color, $duration: 0.3s) {
+  transition: #{$properties} $duration;
+}
+
+// Box sizing mixin
+@mixin full-width-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Dialog/Modal mixins
+@mixin dialog-base {
+  @include flex-column;
+  gap: $gap-large;
+  font-size: $font-size-xl;
+  box-sizing: border-box;
+  @include slide-in-from-bottom;
+  
+  h2 {
+    text-align: center;
+  }
+  
+  @include dark-mode {
+    background: $dark-header-bg;
+    color: $dark-text;
+    border: $border-standard $dark-border;
+  }
+}
+
+// List item mixin
+@mixin list-item-base {
+  background-color: $list-item-bg;
+  padding: $small-padding;
+  border-bottom-right-radius: $border-radius-small;
+  font-size: $font-size-large;
+  width: 100%;
+  cursor: pointer;
+  @include slide-in-from-left;
+  
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &.done {
+    background-color: $done-bg;
+    
+    @include dark-mode {
+      background-color: $dark-done-bg;
+    }
+  }
+}
+
+// Theme toggle mixin
+@mixin theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: $toggle-width;
+  height: $toggle-height;
+  vertical-align: middle;
+  
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $toggle-bg;
+    @include smooth-transition(background);
+    border-radius: $border-radius-full;
+    
+    &:before {
+      position: absolute;
+      content: '';
+      height: $toggle-slider-size;
+      width: $toggle-slider-size;
+      left: 3px;
+      bottom: 3px;
+      background: $toggle-moon-color;
+      @include smooth-transition(transform background);
+      border-radius: 50%;
+    }
+  }
+  
+  input:checked + .slider {
+    background: $toggle-dark-bg;
+    
+    &:before {
+      transform: translateX(22px);
+      background: $toggle-sun-color;
+    }
+  }
+}

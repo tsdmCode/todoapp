@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 body {
   display: none;
   font-family: roboto, sans-serif;
   margin: 0;
   box-sizing: content-box;
   background: #f6f6f6;
+  transition: background color border-color 0.3s;
 }
 
 dialog button,
@@ -24,8 +24,6 @@ dialog input {
   justify-content: center;
 }
 
-/* #region viewport */
-
 #viewport {
   border: 1px solid red;
   width: 400px;
@@ -33,15 +31,30 @@ dialog input {
   overflow-y: auto;
   scrollbar-color: white black;
   scrollbar-width: 10px;
+}
+.dark-mode #viewport {
+  scrollbar-color: black white;
+}
+#viewport {
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-#viewport,
 #list-container {
+  background-color: lightgray;
+  padding: 0.5rem 0.75rem;
+  height: 100px;
+  margin-bottom: 0.75rem;
   overflow-y: auto;
   scrollbar-color: white black;
   scrollbar-width: 10px;
+}
+.dark-mode #list-container {
+  scrollbar-color: black white;
+}
+#list-container {
+  border-radius: 10px;
 }
 
 #placeholder {
@@ -49,14 +62,10 @@ dialog input {
   text-align: center;
 }
 
-#list-container {
-  border-radius: 10px;
-}
-
 #viewport ul {
-  width: 50%;
   display: flex;
   flex-direction: column;
+  width: 50%;
   gap: 0.5rem;
 }
 
@@ -66,42 +75,21 @@ dialog input {
   font-size: 1.5rem;
 }
 
-/* #endregion */
-
-/* #region Halløj */
-
 ul {
   list-style-type: none;
   padding: 0;
 }
 
 .list-item {
-  background-color: #58585845;
+  background-color: rgba(88, 88, 88, 0.2705882353);
   padding: 0.5rem;
-  /* color: #fff; */
   border-bottom-right-radius: 10px;
   font-size: 1.25rem;
   width: 100%;
-  animation: comeInFromSide 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.list-item:hover,
-#list-container li {
   cursor: pointer;
+  animation: slideInLeft 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
-@keyframes comeInFromBottom {
-  from {
-    transform: translateY(200px);
-    opacity: 0.5;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes comeInFromSide {
+@keyframes slideInLeft {
   from {
     transform: translateX(-100px);
     opacity: 0.5;
@@ -111,14 +99,15 @@ ul {
     opacity: 1;
   }
 }
-
-.done {
+.list-item:hover {
+  cursor: pointer;
+}
+.list-item.done {
   background-color: #04a304;
 }
-
-/* #endregion */
-
-/* #region footer */
+.dark-mode .list-item.done {
+  background-color: rgba(0, 85, 0, 0.2705882353);
+}
 
 #menu {
   border: 1px solid red;
@@ -126,209 +115,31 @@ ul {
   position: relative;
 }
 
-#list-container {
-  background-color: lightgray;
-  padding: 0.5rem 1rem;
-  height: 100px;
-  margin-bottom: 0.75rem;
-}
-
-.task-dialog {
-  width: 300px;
-  font-size: 1.5rem;
-  box-sizing: border-box;
-  animation: comeInFromBottom 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-#buttonBar {
-  display: flex;
-  justify-content: space-between;
-}
-
 dialog {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  animation: slideInBottom 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes slideInBottom {
+  from {
+    transform: translateY(200px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 dialog h2 {
   text-align: center;
 }
-
-#buttonBar button,
-#newBar button,
-#menu button,
-.task-dialog button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin: 0 0.5rem;
-  color: inherit;
-}
-
-.task-dialog button {
-  border: 1px solid red;
-}
-
-#newBar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-#newBar button {
-  border: 1px solid red;
-  border-radius: 10px;
-  padding: 0.5rem;
-}
-/* #endregion  */
-
-/* #region dialogs */
-#confirmDelete {
-  background-color: red;
-}
-
-.buttonContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.buttonContainer button {
-  width: 30%;
-  padding: 1rem;
-}
-/* #endregion */
-
-/* #region dark mode */
-
-body.dark-mode {
-  background: #222;
-  color: #eee;
-}
-
-#global-header.dark-mode {
-  background-color: #333;
-}
-
-#viewport.dark-mode,
-#list-container.dark-mode {
-  /* border-color: #444; */
-  background: #222;
-  scrollbar-color: black white;
-}
-
-body.dark-mode #list-container {
-  color: #000;
-}
-
-.done.dark-mode {
-  background-color: #00550045;
-}
-
-body,
-#global-header,
-#viewport {
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
-}
-
-body.dark-mode dialog,
-body.dark-mode .task-dialog,
-body.dark-mode .edit-dialog {
+.dark-mode dialog {
   background: #333;
   color: #eee;
   border: 1px solid #444;
 }
 
-body.dark-mode dialog button,
-body.dark-mode dialog input {
-  background: #222;
-  color: #eee;
-  border: 1px solid #555;
-}
-
-body.dark-mode dialog h2 {
-  color: #eee;
-}
-
-/* #endregion */
-
-/* #region slider */
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 28px;
-  vertical-align: middle;
-}
-
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.theme-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #ccc;
-  transition: background 0.3s;
-  border-radius: 34px;
-}
-
-.theme-switch .slider:before {
-  position: absolute;
-  content: '';
-  height: 22px;
-  width: 22px;
-  left: 3px;
-  bottom: 3px;
-  background: #fff;
-  transition: transform 0.3s;
-  border-radius: 50%;
-}
-
-.theme-switch input:checked + .slider {
-  background: #222;
-}
-
-.theme-switch input:checked + .slider:before {
-  transform: translateX(22px);
-  background: #ffd700;
-}
-
-/* #endregion */
-
-@media screen and (max-res: 800px) {
-  #global-header {
-    width: 100%;
-  }
-}
-@media (min-width: 800px) {
-  main {
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
-    border-radius: 16px;
-
-    padding: 2rem;
-    display: block;
-  }
-}
-
-main {
-  max-width: 400px; /* or whatever width fits your design */
-  margin: 40px auto;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-#global-header,
-#viewport,
-#menu {
-  width: 100%;
-  box-sizing: border-box;
-}
+/*# sourceMappingURL=styles.css.map */
