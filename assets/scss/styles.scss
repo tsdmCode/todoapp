@@ -81,5 +81,131 @@ ul {
 }
 
 dialog {
-    @include dialog-base
+    @include dialog-base;
+    min-width: 20%;
 }
+#buttonBar {
+  @include flex-between;
+}
+
+#newBar {
+  @include flex-between;
+  margin: $large-margin;
+
+  button {
+  border: $border-debug;
+  border-radius: $border-radius-small;
+  padding: $small-padding;
+}
+}
+
+//#region darkmode
+#confirmDelete {
+  background-color: $delete-bg;
+}
+
+body.dark-mode {
+  background: #222;
+  color: #eee;
+}
+
+#global-header.dark-mode {
+  background-color: #333;
+}
+
+#viewport.dark-mode,
+#list-container.dark-mode {
+  /* border-color: #444; */
+  background: #222;
+  scrollbar-color: black white;
+}
+
+body.dark-mode #list-container {
+  color: #000;
+}
+
+.done.dark-mode {
+  background-color: #00550045;
+}
+
+body,
+#global-header,
+#viewport {
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode dialog,
+body.dark-mode .task-dialog,
+body.dark-mode .edit-dialog {
+  background: #333;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+body.dark-mode dialog button,
+body.dark-mode dialog input {
+  background: #222;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark-mode dialog h2 {
+  color: #eee;
+}
+
+//#endregion
+
+//#region slider
+.theme-switch {
+  @include theme-toggle
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+#buttonBar button {
+  @include button-reset;
+  // background: none;
+  // border: none;
+  // cursor: pointer;
+  font-size: $font-size-xl;
+  margin: 0 $base-margin;
+  // color: inherit;
+}
+// .theme-switch .slider {
+//   position: absolute;
+//   cursor: pointer;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background: #ccc;
+//   transition: background 0.3s;
+//   border-radius: 34px;
+// }
+
+// .theme-switch .slider:before {
+//   position: absolute;
+//   content: '';
+//   height: $toggle-slider-size;
+//   width: $toggle-slider-size;
+//   left: 3px;
+//   bottom: 3px;
+//   background: $toggle-moon-color;
+//   transition: transform $transition-fast;
+//   border-radius: 50%;
+// }
+
+// .theme-switch input:checked + .slider {
+//   background: $dark-bg;
+// }
+
+// .theme-switch input:checked + .slider:before {
+//   transform: translateX($toggle-slider-size);
+//   background: $toggle-sun-color;
+// }
+// #endregion

@@ -32,4 +32,8 @@ export default function viewEdit(name, listId, taskIndex, mode) {
       alert('Dit output er lidt for vildt my guy');
     }
   });
+  discardButton.addEventListener('click', () => {
+    editDiag.close();
+    editDiag.remove();
+  });
 }

@@ -16,14 +16,14 @@ export default function deleteView(item, listId, taskIndex, mode) {
     }
   }
 
-  deleteDiag.innerHTML = `<h2>vil du virkelig slette ${
+  deleteDiag.innerHTML = `<h2>Slet ${
     mode === 'task' ? 'tasken' : 'listen'
-  } ${displayName}?</h2><div class="buttonContainer"><button id="confirmDelete">SLET</button><button id="close-dialog" onclick="deleteDiag.close()">FORTRYD</button></div>`;
+  } ${displayName}?</h2><button id="confirmDelete">SLET</button><button id="close-dialog" onclick="deleteDiag.close()">FORTRYD</button>`;
 
   document.body.append(deleteDiag);
 
   deleteDiag.querySelector('#confirmDelete').onclick = (e) => {
-    //console.log('NU SLETTER JEG FUCKING', item);
+    //console.log('NU SLETTER JEG ', item);
     deleteItem(listId, taskIndex, mode, deleteDiag);
   };
 

@@ -5,7 +5,7 @@ import saveData from './saveData.js';
 import updateView from './updateView.js';
 
 export default function deleteItem(listId, taskIndex, mode, deleteDiag) {
-  //console.log('NU SLETTER JEG FUCKING', task);
+  //console.log('NU SLETTER JEG ', task);
   const data = retrieveData();
   const list = data.lists.find((l) => l.id === listId);
 

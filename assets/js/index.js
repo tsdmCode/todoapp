@@ -21,19 +21,18 @@ let appState = '';
 function buildPage() {
   const data = retrieveData();
   document.body.style.display = 'block';
-  //TODO: lav om på det så den kun smider EN liste op og kun når den bliver kaldt
-  //loop der skaber hver liste
+
   applyTheme();
   populateList();
 }
 
-function setActiveList(val) {
-  activeList = val;
-  console.log(val, ' is currently active');
+function setActiveList(value) {
+  activeList = value;
+  console.log(value, ' is currently active');
 }
 
-function setAppstate(val) {
-  appState = val;
+function setAppstate(value) {
+  appState = value;
 }
 
 const data = {
@@ -82,11 +81,10 @@ function toggleTheme() {
   applyTheme();
 }
 
+//event listeners
+
 document.getElementById('toggleTheme').addEventListener('change', toggleTheme);
 
-window.addEventListener('DOMContentLoaded', applyTheme);
-
-//event listeners
 document.getElementById('addTask').addEventListener('click', () => {
   console.log(activeList);
   if (activeList === '') {
