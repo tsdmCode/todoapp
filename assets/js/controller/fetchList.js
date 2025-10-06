@@ -1,5 +1,5 @@
-import updateView from './updateView.js';
-import { retrieveData } from './retrieveData.js';
+import updateView from '../view/updateView.js';
+import { retrieveData } from '../model/retrieveData.js';
 import { setActiveList } from './index.js';
 
 export default function fetchList(str) {

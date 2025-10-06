@@ -1,6 +1,6 @@
 import { retrieveData } from './retrieveData.js';
-import fetchList from './fetchList.js';
-import populateList from './populateList.js';
+import fetchList from '../controller/fetchList.js';
+import populateList from '../view/populateList.js';
 import saveData from './saveData.js';
 
 export default function addItem(listId, mode, addDiag, name) {

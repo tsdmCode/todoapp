@@ -1,5 +1,5 @@
-import editItem from './editItem.js';
-import sanitizeInput from './santizeInput.js';
+import editItem from '../model/editItem.js';
+import sanitizeInput from '../model/santizeInput.js';
 
 export default function viewEdit(name, listId, taskIndex, mode) {
   //text, listId, taskIndex, 'task'

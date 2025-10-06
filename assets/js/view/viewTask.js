@@ -1,8 +1,8 @@
-import { retrieveData } from './retrieveData.js';
-import fetchList from './fetchList.js';
+import { retrieveData } from '../model/retrieveData.js';
+import fetchList from '../controller/fetchList.js';
 import deleteView from './deleteView.js';
 import viewEdit from './viewEdit.js';
-import saveData from './saveData.js';
+import saveData from '../model/saveData.js';
 
 export default function viewTask(task, listId, taskIndex) {
   const dialog = document.createElement('dialog');

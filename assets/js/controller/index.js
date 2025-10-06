@@ -1,9 +1,9 @@
-import { retrieveData } from './retrieveData.js';
-import populateList from './populateList.js';
-import viewAdd from './viewAdd.js';
-import deleteView from './deleteView.js';
-import viewEdit from './viewEdit.js';
-import saveData from './saveData.js';
+import { retrieveData } from '../model/retrieveData.js';
+import populateList from '../view/populateList.js';
+import viewAdd from '../view/viewAdd.js';
+import deleteView from '../view/deleteView.js';
+import viewEdit from '../view/viewEdit.js';
+import saveData from '../model/saveData.js';
 
 //service worker mumbojumbo
 if ('serviceWorker' in navigator) {

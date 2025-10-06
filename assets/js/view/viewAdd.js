@@ -1,5 +1,5 @@
-import addItem from './addItem.js';
-import sanitizeInput from './santizeInput.js';
+import addItem from '../model/addItem.js';
+import sanitizeInput from '../model/santizeInput.js';
 
 export default function viewAdd(listId, mode) {
   const addDiag = document.createElement('dialog');

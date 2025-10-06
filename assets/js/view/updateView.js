@@ -1,4 +1,4 @@
-import { activeList, viewport } from './index.js';
+import { activeList, viewport } from '../controller/index.js';
 import viewTask from './viewTask.js';
 
 export default function updateView(list) {

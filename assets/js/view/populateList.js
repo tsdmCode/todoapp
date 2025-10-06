@@ -1,6 +1,6 @@
-import { retrieveData } from './retrieveData.js';
-import { listHead } from './index.js';
-import fetchList from './fetchList.js';
+import { retrieveData } from '../model/retrieveData.js';
+import { listHead } from '../controller/index.js';
+import fetchList from '../controller/fetchList.js';
 
 export default function populateList() {
   const data = retrieveData();

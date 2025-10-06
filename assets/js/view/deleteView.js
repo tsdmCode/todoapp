@@ -1,5 +1,5 @@
-import { retrieveData } from './retrieveData.js';
-import deleteItem from './deleteItem.js';
+import { retrieveData } from '../model/retrieveData.js';
+import deleteItem from '../model/deleteItem.js';
 
 export default function deleteView(item, listId, taskIndex, mode) {
   console.log('Hej med dig jeg hedder kaj', item, listId, taskIndex, mode);
