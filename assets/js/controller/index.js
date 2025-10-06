@@ -13,6 +13,7 @@ if ('serviceWorker' in navigator) {
     .catch((err) => console.error('Service Worker registration failed:', err));
 }
 
+//todo: Ryd op i de ting der ikke bliver brugt og lav alle views om til at blive bygget fra den samme callback
 const viewport = document.getElementById('viewport');
 const listHead = document.getElementById('list-default');
 let activeList = '';
