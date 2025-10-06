@@ -1,0 +1,14 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+dialog {
+    @include dialog-base;
+    min-width: 20%;
+}
+
+#confirmDelete {
+  background-color: $delete-bg;
+}

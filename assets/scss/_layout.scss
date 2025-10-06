@@ -1,0 +1,57 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// viewport/containers
+@use 'variables' as *;
+@use 'mixins' as *;
+#viewport {
+  border: $border-debug;
+  width: $main-width;
+  height: $viewport-height;
+  @include custom-scrollbar;
+  @include flex-center;
+}
+
+#list-container {
+    background-color: $list-container-bg;
+    padding: $small-padding $large-margin;
+    height: $list-container-height;
+    margin-bottom: $large-margin;
+    @include custom-scrollbar;
+    border-radius: $border-radius-small;
+}
+
+#placeholder {
+  padding: $base-padding;
+  text-align: center;
+}
+
+#viewport ul {
+    @include flex-column;
+    width: 50%;
+    gap: $gap-small;
+}
+
+.list-head {
+  text-align: center;
+  font-weight: bold;
+  font-size: $font-size-xl;
+}
+
+.list-item {
+ @include list-item-base
+}
+
+main {
+  max-width: 400px; 
+  margin: 40px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#global-header,
+#viewport,
+#menu {
+  width: 100%;
+  box-sizing: border-box;
+}

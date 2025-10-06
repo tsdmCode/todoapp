@@ -1,0 +1,9 @@
+// header section
+@use 'variables' as *;
+@use 'mixins' as *;
+#global-header {
+  background-color: $header-bg;
+  width: $main-width;
+  height: $header-height;
+  @include flex-column-center;
+}

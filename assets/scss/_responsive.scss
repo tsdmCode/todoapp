@@ -1,0 +1,10 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+@media screen and (max-res: 800px) {
+  @include mobile-down
+}
+@media (min-width: 800px) {
+  @include mobile-up
+}

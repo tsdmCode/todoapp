@@ -1,0 +1,48 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body.dark-mode {
+  background: #222;
+  color: #eee;
+}
+
+#global-header.dark-mode {
+  background-color: #333;
+}
+
+#viewport.dark-mode,
+#list-container.dark-mode {
+  /* border-color: #444; */
+  background: #222;
+  scrollbar-color: black white;
+}
+
+body.dark-mode #list-container {
+  color: #000;
+}
+
+.done.dark-mode {
+  background-color: #00550045;
+}
+
+body.dark-mode dialog,
+body.dark-mode .task-dialog,
+body.dark-mode .edit-dialog {
+  background: #333;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+body.dark-mode dialog button,
+body.dark-mode dialog input {
+  background: #222;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark-mode dialog h2 {
+  color: #eee;
+}

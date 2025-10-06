@@ -1,0 +1,32 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Menu time
+@use 'variables' as *;
+@use 'mixins' as *;
+#menu {
+    border: $border-debug;
+    width: $main-width;
+    position: relative;
+}
+
+#buttonBar {
+  @include flex-between;
+}
+
+#newBar {
+  @include flex-between;
+  margin: $large-margin;
+
+  button {
+  border: $border-debug;
+  border-radius: $border-radius-small;
+  padding: $small-padding;
+}
+}
+
+#buttonBar button {
+  @include button-reset;
+  font-size: $font-size-xl;
+  margin: 0 $base-margin;
+}

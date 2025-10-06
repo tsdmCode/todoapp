@@ -1,0 +1,31 @@
+// Google Fonts import
+@use 'variables' as *;
+@use 'mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+  display: none;
+  font-family: $font-family;
+  margin: 0;
+  box-sizing: content-box;
+  background: $primary-bg;
+  @include smooth-transition;
+}
+
+dialog button,
+dialog input {
+  font-family: $font-family;
+  padding: $base-padding;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+body,
+#global-header,
+#viewport {
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
